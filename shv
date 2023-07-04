@@ -10,7 +10,7 @@ date_fmt=${SHV_DATE_FMT:-"%Y-%m-%d"}
 exts=${SHV_EXTS:-"md adoc txt org"}
 ext=$(printf "%s" "$exts" | cut -d' ' -f1)
 ignore=${SHV_IGNORE:-"./.obsidian/* ./.git/*"}
-journal_path=${SHV_DIARY_PATH:-"$SHV_PATH/journal"}
+journal_path=${SHV_JOURNAL_PATH:-"$SHV_PATH/journal"}
 os=$(uname)
 path=${SHV_PATH:-"$HOME/Documents/notes"}
 picker=${SHV_PICKER:-"fzf -m --ansi --print-query --bind=alt-enter:print-query"}
@@ -235,7 +235,7 @@ capture() {
 # $2: label
 journal_note() {
     date=$(get_date "$1")
-    ext=${SHV_DIARY_EXT:-"$ext"}
+    ext=${SHV_JOURNAL_EXT:-"$ext"}
     if [ -z "$2" ]; then
         printf "%s/%s.%s" "$journal_path" "$date" "$ext"
     else
